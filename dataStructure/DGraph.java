@@ -10,15 +10,15 @@ import java.util.LinkedList;
 
 public class DGraph implements graph{
 
-	private HashMap<node_data, LinkedList<edge_data>> graph;
-    private HashMap<Integer, node_data> indexs;
-    private LinkedList<node_data> VertexSet;
-    private int numOfVertex;
-    private int numOfEdges;
-	private int changePreform;
+	private HashMap<node_data, LinkedList<edge_data>> graph; // gets vertex and returns edge set 
+    private HashMap<Integer, node_data> indexs; // gets integer and returns vertex
+    private LinkedList<node_data> VertexSet; // vertex set
+    private int numOfVertex; // amount of vertex
+    private int numOfEdges; // amount of edges
+	private int changePreform; // amount of changes
     
-	public DGraph(){
-		graph = new HashMap<node_data, LinkedList<edge_data>>();
+	public DGraph(){ // Default constructor
+		graph = new HashMap<node_data, LinkedList<edge_data>>(); 
 		indexs = new HashMap<Integer, node_data>();
 		VertexSet = new LinkedList<node_data>();
 		numOfVertex = 0;
@@ -41,7 +41,7 @@ public class DGraph implements graph{
 				output = e;
 			}
 		}
-		
+	
 		return output;
 	}
 
@@ -61,7 +61,7 @@ public class DGraph implements graph{
 		
 		LinkedList<edge_data> edges = graph.get(source);
 		edge_data newEdge = new Edge(source, destination, w);
-		edges.add(newEdge);
+		edges.addFirst(newEdge);
 		numOfEdges++;
 		changePreform++;
 	}
@@ -113,7 +113,7 @@ public class DGraph implements graph{
 				edges.remove(e);
 			}	
 		}
-		changePreform--;
+		changePreform++;
 		numOfEdges--;
 		return output;
 	}
