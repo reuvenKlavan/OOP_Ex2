@@ -14,16 +14,13 @@ public class Vertex implements node_data {
 	private String info;
 	public static Color [] Colors = {Color.WHITE, Color.DARK_GRAY, Color.BLACK};
 	
-	public Vertex(double weight, double x, double y, double z) {
+	public Vertex(double x, double y, double z) {
 		this.V = new Point3D(x,y,z);
 		this.state = Colors[0];
-		if (this.weight > 0) {
-			this.weight = weight;
-		}
-		else throw new IllegalArgumentException("non positive weight");
 		info = "";
 		counter++;
 		key = counter;
+		this.weight = Double.MAX_VALUE;
 		
 	}
 	
